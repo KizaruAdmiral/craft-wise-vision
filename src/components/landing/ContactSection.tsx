@@ -3,13 +3,11 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
-import { useMagneticButton } from '@/hooks/useMagneticButton';
 import { toast } from 'sonner';
 import { ArrowRight } from 'lucide-react';
 
 export function ContactSection() {
   const { ref, isRevealed } = useScrollReveal<HTMLDivElement>({ threshold: 0.1 });
-  const magneticBtn = useMagneticButton<HTMLButtonElement>(0.15);
   
   const [formData, setFormData] = useState({
     name: '',
@@ -119,12 +117,9 @@ export function ContactSection() {
 
               <div className="flex flex-col sm:flex-row gap-4 pt-4">
                 <Button
-                  ref={magneticBtn.ref}
-                  onMouseMove={magneticBtn.onMouseMove}
-                  onMouseLeave={magneticBtn.onMouseLeave}
                   type="submit"
                   disabled={isSubmitting}
-                  className="flex-1 magnetic-btn group bg-foreground text-background hover:bg-foreground/90 transition-all duration-300 py-6 text-lg overflow-hidden relative"
+                  className="flex-1 group bg-foreground text-background hover:bg-foreground/90 transition-all duration-300 py-6 text-lg overflow-hidden relative"
                 >
                   <span className={`flex items-center justify-center transition-all duration-300 ${!isSubmitting ? 'group-hover:-translate-y-full group-hover:opacity-0' : ''}`}>
                     {isSubmitting ? '提交中...' : '获取方案'}
@@ -134,7 +129,7 @@ export function ContactSection() {
                 <Button
                   type="button"
                   variant="outline"
-                  className="magnetic-btn glass-card border-primary/20 hover:border-primary/40 py-6"
+                  className="glass-card border-primary/20 hover:border-primary/40 py-6"
                 >
                   查看案例
                 </Button>
