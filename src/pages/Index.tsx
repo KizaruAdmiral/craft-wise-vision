@@ -5,17 +5,48 @@ import { DifferentiatorSection } from '@/components/landing/DifferentiatorSectio
 import { TestimonialsSection } from '@/components/landing/TestimonialsSection';
 import { ContactSection } from '@/components/landing/ContactSection';
 import { Footer } from '@/components/landing/Footer';
+import { NavBar } from '@/components/NavBar';
+import { SectionIndicator } from '@/components/landing/SectionIndicator';
+import { useFullPageScroll } from '@/hooks/useFullPageScroll';
+
+const SECTION_COUNT = 6;
 
 const Index = () => {
+  const { containerRef, currentSection, scrollToSection, totalSections } = useFullPageScroll({
+    sectionCount: SECTION_COUNT,
+  });
+
   return (
-    <main className="min-h-screen bg-background overflow-x-hidden">
-      <HeroSection />
-      <StorySection />
-      <CapabilitiesSection />
-      <DifferentiatorSection />
-      <TestimonialsSection />
-      <ContactSection />
-      <Footer />
+    <main
+      ref={containerRef}
+      className="min-h-screen bg-background overflow-x-hidden overflow-y-auto snap-y snap-mandatory"
+    >
+      <NavBar />
+      <SectionIndicator
+        currentSection={currentSection}
+        totalSections={totalSections}
+        onNavigate={scrollToSection}
+      />
+      
+      <div data-section className="min-h-screen snap-start">
+        <HeroSection />
+      </div>
+      <div data-section className="min-h-screen snap-start flex items-center">
+        <StorySection />
+      </div>
+      <div data-section className="min-h-screen snap-start flex items-center">
+        <CapabilitiesSection />
+      </div>
+      <div data-section className="min-h-screen snap-start flex items-center">
+        <DifferentiatorSection />
+      </div>
+      <div data-section className="min-h-screen snap-start flex items-center">
+        <TestimonialsSection />
+      </div>
+      <div data-section className="min-h-screen snap-start">
+        <ContactSection />
+        <Footer />
+      </div>
     </main>
   );
 };

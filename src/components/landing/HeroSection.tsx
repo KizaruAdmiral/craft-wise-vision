@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { useMagneticButton } from '@/hooks/useMagneticButton';
 import { Scene3D } from './Scene3D';
-import boleLogo from '@/assets/bole-logo.png';
+import { ArrowRight } from 'lucide-react';
 
 const partnerLogos = [
   { name: '大型制造集团', abbr: 'MFG' },
@@ -49,18 +49,8 @@ export function HeroSection() {
       </div>
 
       <div className="container mx-auto px-4 py-20 lg:py-32 relative z-10">
-        {/* Logo */}
-        <div 
-          className={`flex justify-center mb-8 transition-all duration-700 ${
-            isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-          }`}
-        >
-          <img 
-            src={boleLogo} 
-            alt="伯乐 AI" 
-            className="h-16 md:h-20 object-contain"
-          />
-        </div>
+            {/* Spacer for NavBar */}
+        <div className="h-16 md:h-20" />
 
         {/* Main content grid */}
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
@@ -103,9 +93,10 @@ export function HeroSection() {
                 onMouseLeave={magneticBtn.onMouseLeave}
                 onClick={scrollToContact}
                 size="lg"
-                className="magnetic-btn bg-accent hover:bg-accent/90 text-accent-foreground shadow-accent-glow hover:shadow-glow-lg transition-all duration-300 text-lg px-8 py-6 rounded-xl"
+                className="magnetic-btn group bg-foreground text-background hover:bg-foreground/90 transition-all duration-300 text-lg px-8 py-6 rounded-xl"
               >
                 获取方案
+                <ArrowRight className="w-5 h-5 ml-1 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
               </Button>
               <Button
                 ref={secondaryBtn.ref}
