@@ -20,7 +20,7 @@ export function Footer() {
       <div className="container mx-auto px-4">
         <div className="flex flex-col items-center text-center max-w-xl mx-auto">
           {/* Brand */}
-          <div className="h-10 w-10 overflow-hidden flex items-center justify-center mb-4">
+          <div className="h-12 w-12 overflow-hidden flex items-center justify-center mb-4">
             <img src={boleLogo} alt="伯乐 AI" className="h-[110%] w-[110%] object-cover object-center" />
           </div>
           <p className="text-muted-foreground mb-6">
