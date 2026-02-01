@@ -37,11 +37,13 @@ export function NavBar() {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center">
-            <img
-              src={boleLogo}
-              alt="伯乐 AI"
-              className="h-8 md:h-10 object-contain"
-            />
+            <div className="h-10 md:h-12 w-24 md:w-28 overflow-hidden">
+              <img
+                src={boleLogo}
+                alt="伯乐 AI"
+                className="h-[140%] w-[140%] object-cover object-center -mt-[20%] -ml-[20%]"
+              />
+            </div>
           </Link>
 
           {/* Desktop Navigation */}
