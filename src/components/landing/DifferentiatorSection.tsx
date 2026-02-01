@@ -37,6 +37,33 @@ function MetricCard({ value, suffix, label, description, delay }: MetricCardProp
   );
 }
 
+interface DifferentiatorCardProps {
+  title: string;
+  description: string;
+  icon: React.ReactNode;
+  delay: number;
+}
+
+function DifferentiatorCard({ title, description, icon, delay }: DifferentiatorCardProps) {
+  const { ref, isRevealed } = useScrollReveal<HTMLDivElement>({ threshold: 0.2 });
+
+  return (
+    <div
+      ref={ref}
+      className={`text-center lg:text-left transition-all duration-700 ${
+        isRevealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+      }`}
+      style={{ transitionDelay: `${delay}ms` }}
+    >
+      <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto lg:mx-0 mb-3 text-primary">
+        {icon}
+      </div>
+      <h3 className="text-lg font-semibold mb-2">{title}</h3>
+      <p className="text-sm text-muted-foreground leading-relaxed">{description}</p>
+    </div>
+  );
+}
+
 const metrics = [
   {
     value: 23,
@@ -125,25 +152,9 @@ export function DifferentiatorSection() {
 
         {/* Differentiators */}
         <div className="grid md:grid-cols-3 gap-6">
-          {differentiators.map((diff, i) => {
-            const { ref, isRevealed } = useScrollReveal<HTMLDivElement>({ threshold: 0.2 });
-            return (
-              <div
-                key={i}
-                ref={ref}
-                className={`text-center lg:text-left transition-all duration-700 ${
-                  isRevealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-                }`}
-                style={{ transitionDelay: `${i * 150}ms` }}
-              >
-                <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto lg:mx-0 mb-3 text-primary">
-                  {diff.icon}
-                </div>
-                <h3 className="text-lg font-semibold mb-2">{diff.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{diff.description}</p>
-              </div>
-            );
-          })}
+          {differentiators.map((diff, i) => (
+            <DifferentiatorCard key={i} {...diff} delay={i * 150} />
+          ))}
         </div>
       </div>
     </section>
