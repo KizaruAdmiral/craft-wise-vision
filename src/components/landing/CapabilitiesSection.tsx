@@ -1,5 +1,4 @@
 import { useScrollReveal } from '@/hooks/useScrollReveal';
-import { useTiltCard } from '@/hooks/useMagneticButton';
 
 interface CapabilityCardProps {
   title: string;
@@ -12,7 +11,6 @@ interface CapabilityCardProps {
 
 function CapabilityCard({ title, titleEn, description, features, icon, delay }: CapabilityCardProps) {
   const { ref, isRevealed } = useScrollReveal<HTMLDivElement>({ threshold: 0.1 });
-  const tiltCard = useTiltCard<HTMLDivElement>(5);
 
   return (
     <div
@@ -22,12 +20,7 @@ function CapabilityCard({ title, titleEn, description, features, icon, delay }: 
       }`}
       style={{ transitionDelay: `${delay}ms` }}
     >
-      <div
-        ref={tiltCard.ref}
-        onMouseMove={tiltCard.onMouseMove}
-        onMouseLeave={tiltCard.onMouseLeave}
-        className="glass-card rounded-2xl p-6 lg:p-8 h-full group hover:shadow-glass-xl transition-all duration-500 cursor-default"
-      >
+      <div className="glass-card rounded-2xl p-6 lg:p-8 h-full group hover:shadow-glass-xl transition-all duration-500 cursor-default">
         {/* Icon */}
         <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors duration-300">
           <div className="text-primary group-hover:scale-110 transition-transform duration-300">

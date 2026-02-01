@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { useMagneticButton } from '@/hooks/useMagneticButton';
 import { Scene3D } from './Scene3D';
 import { ArrowRight } from 'lucide-react';
 
@@ -16,8 +15,6 @@ const partnerLogos = [
 ];
 export function HeroSection() {
   const [isLoaded, setIsLoaded] = useState(false);
-  const magneticBtn = useMagneticButton<HTMLButtonElement>(0.2);
-  const secondaryBtn = useMagneticButton<HTMLButtonElement>(0.15);
 
   useEffect(() => {
     const timer = setTimeout(() => setIsLoaded(true), 100);
@@ -86,12 +83,9 @@ export function HeroSection() {
               }`}
             >
               <Button
-                ref={magneticBtn.ref}
-                onMouseMove={magneticBtn.onMouseMove}
-                onMouseLeave={magneticBtn.onMouseLeave}
                 onClick={scrollToContact}
                 size="lg"
-                className="magnetic-btn group bg-foreground text-background hover:bg-foreground/90 transition-all duration-300 text-lg px-8 py-6 rounded-xl overflow-hidden relative"
+                className="group bg-foreground text-background hover:bg-foreground/90 transition-all duration-300 text-lg px-8 py-6 rounded-xl overflow-hidden relative"
               >
                 <span className="flex items-center justify-center transition-all duration-300 group-hover:-translate-y-full group-hover:opacity-0">
                   获取方案
@@ -99,12 +93,9 @@ export function HeroSection() {
                 <ArrowRight className="w-5 h-5 absolute inset-0 m-auto transition-all duration-300 translate-y-full opacity-0 group-hover:translate-y-0 group-hover:opacity-100" />
               </Button>
               <Button
-                ref={secondaryBtn.ref}
-                onMouseMove={secondaryBtn.onMouseMove}
-                onMouseLeave={secondaryBtn.onMouseLeave}
                 variant="outline"
                 size="lg"
-                className="magnetic-btn glass-card border-primary/20 hover:border-primary/40 text-lg px-8 py-6 rounded-xl transition-all duration-300"
+                className="glass-card border-primary/20 hover:border-primary/40 text-lg px-8 py-6 rounded-xl transition-all duration-300"
               >
                 查看案例
               </Button>
