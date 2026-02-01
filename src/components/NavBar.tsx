@@ -67,9 +67,12 @@ export function NavBar() {
             <Link to="/contact">
               <Button
                 size="sm"
-                className="bg-foreground text-background hover:bg-foreground/90 transition-all duration-300 px-6"
+                className="group bg-foreground text-background hover:bg-foreground/90 transition-all duration-300 px-6 overflow-hidden relative"
               >
-                开始体验
+                <span className="flex items-center justify-center transition-all duration-300 group-hover:-translate-y-full group-hover:opacity-0">
+                  开始体验
+                </span>
+                <ArrowRight className="w-4 h-4 absolute inset-0 m-auto transition-all duration-300 translate-y-full opacity-0 group-hover:translate-y-0 group-hover:opacity-100" />
               </Button>
             </Link>
           </div>
@@ -113,8 +116,11 @@ export function NavBar() {
             </Link>
           ))}
           <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>
-            <Button className="w-full bg-foreground text-background hover:bg-foreground/90 transition-all duration-300 mt-4">
-              开始体验
+            <Button className="w-full group bg-foreground text-background hover:bg-foreground/90 transition-all duration-300 mt-4 overflow-hidden relative h-10">
+              <span className="flex items-center justify-center transition-all duration-300 group-hover:-translate-y-full group-hover:opacity-0">
+                开始体验
+              </span>
+              <ArrowRight className="w-4 h-4 absolute inset-0 m-auto transition-all duration-300 translate-y-full opacity-0 group-hover:translate-y-0 group-hover:opacity-100" />
             </Button>
           </Link>
         </div>

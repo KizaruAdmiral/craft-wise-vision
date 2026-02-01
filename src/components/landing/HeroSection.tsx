@@ -91,9 +91,12 @@ export function HeroSection() {
                 onMouseLeave={magneticBtn.onMouseLeave}
                 onClick={scrollToContact}
                 size="lg"
-                className="magnetic-btn bg-foreground text-background hover:bg-foreground/90 transition-all duration-300 text-lg px-8 py-6 rounded-xl"
+                className="magnetic-btn group bg-foreground text-background hover:bg-foreground/90 transition-all duration-300 text-lg px-8 py-6 rounded-xl overflow-hidden relative"
               >
-                获取方案
+                <span className="flex items-center justify-center transition-all duration-300 group-hover:-translate-y-full group-hover:opacity-0">
+                  获取方案
+                </span>
+                <ArrowRight className="w-5 h-5 absolute inset-0 m-auto transition-all duration-300 translate-y-full opacity-0 group-hover:translate-y-0 group-hover:opacity-100" />
               </Button>
               <Button
                 ref={secondaryBtn.ref}
