@@ -2,6 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=LXGW+WenKai:wght@400;700&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -167,12 +168,30 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Playfair Display', 'Noto Serif SC', serif;
+    font-family: 'Playfair Display', 'LXGW WenKai', 'Noto Serif SC', serif;
   }
 
   code, pre, .mono {
     font-family: 'JetBrains Mono', monospace;
   }
+}
+
+/* 横幅滚动动画 */
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll-left 25s linear infinite;
+}
+
+.animate-scroll:hover {
+  animation-play-state: paused;
 }
 
 @layer components {
