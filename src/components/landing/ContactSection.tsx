@@ -124,14 +124,12 @@ export function ContactSection() {
                   onMouseLeave={magneticBtn.onMouseLeave}
                   type="submit"
                   disabled={isSubmitting}
-                  className="flex-1 magnetic-btn group bg-foreground text-background hover:bg-foreground/90 transition-all duration-300 py-6 text-lg overflow-hidden"
+                  className="flex-1 magnetic-btn group bg-foreground text-background hover:bg-foreground/90 transition-all duration-300 py-6 text-lg overflow-hidden relative"
                 >
-                  <span className="relative flex items-center justify-center">
-                    <span className={`transition-transform duration-300 ${!isSubmitting ? 'group-hover:-translate-y-full group-hover:opacity-0' : ''}`}>
-                      {isSubmitting ? '提交中...' : '获取方案'}
-                    </span>
-                    {!isSubmitting && <ArrowRight className="w-5 h-5 absolute transition-transform duration-300 translate-y-full group-hover:translate-y-0" />}
+                  <span className={`flex items-center justify-center transition-all duration-300 ${!isSubmitting ? 'group-hover:-translate-y-full group-hover:opacity-0' : ''}`}>
+                    {isSubmitting ? '提交中...' : '获取方案'}
                   </span>
+                  {!isSubmitting && <ArrowRight className="w-5 h-5 absolute inset-0 m-auto transition-all duration-300 translate-y-full opacity-0 group-hover:translate-y-0 group-hover:opacity-100" />}
                 </Button>
                 <Button
                   type="button"
