@@ -126,9 +126,7 @@ export function HeroSection() {
               isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
             }`}
           >
-            <div className="glass-card rounded-2xl overflow-hidden">
-              <Scene3D />
-            </div>
+            <Scene3D />
           </div>
         </div>
 
@@ -151,7 +149,7 @@ export function HeroSection() {
               {partnerLogos.map((partner, i) => (
                 <div
                   key={`first-${i}`}
-                  className="glass-card px-6 py-3 rounded-lg hover:shadow-glass-lg transition-all duration-300 group cursor-default flex-shrink-0 mx-2"
+                  className="bg-card/80 backdrop-blur-sm px-6 py-3 rounded-2xl shadow-soft hover:shadow-soft-lg transition-all duration-300 group cursor-default flex-shrink-0 mx-2 border border-border/10"
                 >
                   <div className="flex items-center gap-2">
                     <span className="font-mono text-xs text-primary/60 group-hover:text-primary transition-colors">
@@ -167,7 +165,7 @@ export function HeroSection() {
               {partnerLogos.map((partner, i) => (
                 <div
                   key={`second-${i}`}
-                  className="glass-card px-6 py-3 rounded-lg hover:shadow-glass-lg transition-all duration-300 group cursor-default flex-shrink-0 mx-2"
+                  className="bg-card/80 backdrop-blur-sm px-6 py-3 rounded-2xl shadow-soft hover:shadow-soft-lg transition-all duration-300 group cursor-default flex-shrink-0 mx-2 border border-border/10"
                 >
                   <div className="flex items-center gap-2">
                     <span className="font-mono text-xs text-primary/60 group-hover:text-primary transition-colors">

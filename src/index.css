@@ -51,13 +51,17 @@
     --input: 0 0% 0%;
     --ring: 0 0% 0%;
 
-    --radius: 0rem;
+    --radius: 1rem;
 
     /* 玻璃态特效变量 */
     --glass-bg: rgba(255, 255, 255, 0.7);
     --glass-border: rgba(255, 255, 255, 0.3);
-    --glass-shadow: 0 8px 32px rgba(26, 84, 144, 0.1);
+    --glass-shadow: 4px 6px 12px rgba(0, 0, 0, 0.08);
     --glass-blur: blur(12px);
+    
+    /* 柔和投影 - 左上到右下 */
+    --shadow-soft: 4px 6px 12px rgba(0, 0, 0, 0.08);
+    --shadow-soft-lg: 6px 8px 20px rgba(0, 0, 0, 0.12);
 
     /* 渐变 */
     --gradient-primary: linear-gradient(135deg, hsl(209 70% 33%), hsl(209 70% 45%));
