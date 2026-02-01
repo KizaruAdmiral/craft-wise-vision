@@ -39,7 +39,7 @@ function FlipCard({ data, delay }: { data: FlipCardData; delay: number }) {
   return (
     <div
       ref={ref}
-      className={`flip-card h-[400px] md:h-[450px] cursor-pointer transition-all duration-700 ${
+      className={`flip-card w-[280px] h-[280px] sm:w-[300px] sm:h-[300px] cursor-pointer transition-all duration-700 flex-shrink-0 ${
         isRevealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
       }`}
       style={{ transitionDelay: `${delay}ms` }}
@@ -49,41 +49,41 @@ function FlipCard({ data, delay }: { data: FlipCardData; delay: number }) {
     >
       <div className={`flip-card-inner ${isFlipped ? 'flipped' : ''}`}>
         {/* Front */}
-        <div className="flip-card-front glass-card rounded-2xl p-8 flex flex-col items-center justify-center text-center">
-          <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider mb-4">
+        <div className="flip-card-front glass-card rounded-2xl p-6 flex flex-col items-center justify-center text-center">
+          <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider mb-3">
             {data.subtitle}
           </span>
-          <div className="text-5xl mb-6">{data.icon}</div>
-          <h3 className="text-2xl font-semibold mb-4">{data.title}</h3>
+          <div className="text-4xl mb-4">{data.icon}</div>
+          <h3 className="text-xl font-semibold mb-3">{data.title}</h3>
           <div className="mt-auto">
-            <div className="text-4xl font-bold font-mono">
+            <div className="text-3xl font-bold font-mono">
               {data.stat.value}
               <span className="text-muted-foreground">{data.stat.suffix}</span>
             </div>
             <div className="text-xs text-muted-foreground mt-1">{data.stat.label}</div>
           </div>
-          <div className="mt-6 text-xs text-muted-foreground/50">
+          <div className="mt-4 text-xs text-muted-foreground/50">
             {isMobile ? '点击翻转' : data.hint}
           </div>
         </div>
 
         {/* Back */}
-        <div className="flip-card-back glass-card rounded-2xl p-8 flex flex-col justify-center">
-          <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider mb-4">
+        <div className="flip-card-back glass-card rounded-2xl p-6 flex flex-col justify-center">
+          <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider mb-2">
             {data.subtitle}
           </span>
-          <h3 className="text-xl font-semibold mb-4">{data.title}</h3>
-          <p className="text-muted-foreground leading-relaxed mb-6">{data.description}</p>
-          <div className="mt-auto pt-4 border-t border-border/50">
+          <h3 className="text-lg font-semibold mb-3">{data.title}</h3>
+          <p className="text-sm text-muted-foreground leading-relaxed mb-4">{data.description}</p>
+          <div className="mt-auto pt-3 border-t border-border/50">
             <div className="flex items-center justify-between">
               <div>
-                <div className="text-3xl font-bold font-mono">
+                <div className="text-2xl font-bold font-mono">
                   {countUp.count}
                   <span className="text-muted-foreground">{data.stat.suffix}</span>
                 </div>
                 <div className="text-xs text-muted-foreground">{data.stat.label}</div>
               </div>
-              <div className="text-4xl opacity-30">{data.icon}</div>
+              <div className="text-3xl opacity-30">{data.icon}</div>
             </div>
           </div>
         </div>
@@ -139,8 +139,8 @@ const cards: FlipCardData[] = [
 
 export function StorySection() {
   return (
-    <section className="py-24 lg:py-32 relative" data-section>
-      <div className="container mx-auto px-4">
+    <section className="py-24 lg:py-32 relative w-full" data-section>
+      <div className="container mx-auto px-4 flex flex-col items-center justify-center">
         {/* Section header */}
         <div className="text-center mb-16">
           <h2 className="text-headline mb-4">为什么传统行业需要不一样的 AI 伙伴？</h2>
@@ -149,8 +149,8 @@ export function StorySection() {
           </p>
         </div>
 
-        {/* Flip cards grid */}
-        <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+        {/* Flip cards - flexible layout */}
+        <div className="flex flex-wrap justify-center gap-6 lg:gap-8 w-full max-w-6xl">
           {cards.map((card, index) => (
             <FlipCard key={card.title} data={card} delay={index * 150} />
           ))}
