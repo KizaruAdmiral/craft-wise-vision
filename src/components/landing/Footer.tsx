@@ -18,52 +18,29 @@ export function Footer() {
   return (
     <footer className="py-16 lg:py-20 border-t border-border/50">
       <div className="container mx-auto px-4">
-        <div className="grid lg:grid-cols-4 gap-12 lg:gap-8">
+        <div className="flex flex-col items-center text-center max-w-xl mx-auto">
           {/* Brand */}
-          <div className="lg:col-span-2">
-            <img src={boleLogo} alt="伯乐 AI" className="h-10 mb-4" />
-            <p className="text-muted-foreground max-w-md mb-6">
-              企业的人工智能技能升级伙伴，全方位协助企业应用人工智能——从升级销售与营销流程，到管理端到端的供应链。
-            </p>
-            
-            {/* Newsletter */}
-            <div className="max-w-sm">
-              <p className="text-sm font-medium mb-3">订阅行业洞察</p>
-              <form onSubmit={handleSubscribe} className="flex gap-2">
-                <Input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="您的邮箱"
-                  className="bg-background/50"
-                  required
-                />
-                <Button type="submit" variant="outline" size="sm">
-                  订阅
-                </Button>
-              </form>
-            </div>
-          </div>
-
-          {/* Links */}
-          <div>
-            <h4 className="font-semibold mb-4">解决方案</h4>
-            <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><a href="#" className="hover:text-foreground transition-colors">销售智能</a></li>
-              <li><a href="#" className="hover:text-foreground transition-colors">营销自动化</a></li>
-              <li><a href="#" className="hover:text-foreground transition-colors">供应链优化</a></li>
-              <li><a href="#" className="hover:text-foreground transition-colors">AI战略咨询</a></li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="font-semibold mb-4">关于我们</h4>
-            <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><a href="#" className="hover:text-foreground transition-colors">团队介绍</a></li>
-              <li><a href="#" className="hover:text-foreground transition-colors">客户案例</a></li>
-              <li><a href="#" className="hover:text-foreground transition-colors">新闻动态</a></li>
-              <li><a href="#" className="hover:text-foreground transition-colors">联系我们</a></li>
-            </ul>
+          <img src={boleLogo} alt="伯乐 AI" className="h-10 mb-4" />
+          <p className="text-muted-foreground mb-6">
+            企业的人工智能技能升级伙伴，全方位协助企业应用人工智能——从升级销售与营销流程，到管理端到端的供应链。
+          </p>
+          
+          {/* Newsletter */}
+          <div className="w-full max-w-sm">
+            <p className="text-sm font-medium mb-3">订阅行业洞察</p>
+            <form onSubmit={handleSubscribe} className="flex gap-2">
+              <Input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="您的邮箱"
+                className="bg-background/50"
+                required
+              />
+              <Button type="submit" variant="outline" size="sm">
+                订阅
+              </Button>
+            </form>
           </div>
         </div>
 

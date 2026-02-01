@@ -28,6 +28,11 @@ export default {
   				'Noto Serif SC',
   				'serif'
   			],
+  			'display-cn': [
+  				'LXGW WenKai',
+  				'Noto Serif SC',
+  				'serif'
+  			],
   			mono: [
   				'Space Mono',
   				'ui-monospace',

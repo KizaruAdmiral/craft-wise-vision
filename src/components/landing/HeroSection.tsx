@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { useMagneticButton } from '@/hooks/useMagneticButton';
-import { RadarChart } from './RadarChart';
+import { Scene3D } from './Scene3D';
 import boleLogo from '@/assets/bole-logo.png';
 
 const partnerLogos = [
@@ -10,8 +10,10 @@ const partnerLogos = [
   { name: '建筑工程公司', abbr: 'CON' },
   { name: '零售连锁品牌', abbr: 'RET' },
   { name: '能源科技集团', abbr: 'ENR' },
+  { name: '金融科技服务', abbr: 'FIN' },
+  { name: '医疗健康产业', abbr: 'MED' },
+  { name: '新能源汽车', abbr: 'NEV' },
 ];
-
 export function HeroSection() {
   const [isLoaded, setIsLoaded] = useState(false);
   const magneticBtn = useMagneticButton<HTMLButtonElement>(0.2);
@@ -118,25 +120,19 @@ export function HeroSection() {
             </div>
           </div>
 
-          {/* Right: Interactive Radar Chart */}
+          {/* Right: 3D Scene */}
           <div 
             className={`transition-all duration-700 delay-500 ${
               isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
             }`}
           >
-            <div className="glass-card rounded-2xl p-6 lg:p-8">
-              <div className="text-center mb-6">
-                <h3 className="text-lg font-semibold mb-2">AI 能力诊断预览</h3>
-                <p className="text-sm text-muted-foreground font-mono">
-                  Enterprise AI Capability Assessment
-                </p>
-              </div>
-              <RadarChart />
+            <div className="glass-card rounded-2xl overflow-hidden">
+              <Scene3D />
             </div>
           </div>
         </div>
 
-        {/* Partner logos */}
+        {/* Partner logos - Auto scrolling banner */}
         <div 
           className={`mt-20 transition-all duration-700 delay-600 ${
             isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
@@ -145,22 +141,45 @@ export function HeroSection() {
           <p className="text-center text-sm text-muted-foreground mb-6">
             已服务行业领先企业
           </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            {partnerLogos.map((partner, i) => (
-              <div
-                key={i}
-                className="glass-card px-6 py-3 rounded-lg hover:shadow-glass-lg transition-all duration-300 group cursor-default"
-              >
-                <div className="flex items-center gap-2">
-                  <span className="font-mono text-xs text-primary/60 group-hover:text-primary transition-colors">
-                    {partner.abbr}
-                  </span>
-                  <span className="text-sm text-muted-foreground group-hover:text-foreground transition-colors">
-                    {partner.name}
-                  </span>
+          <div className="relative overflow-hidden">
+            {/* Gradient masks */}
+            <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
+            <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
+            
+            <div className="flex animate-scroll hover:[animation-play-state:paused]">
+              {/* First set */}
+              {partnerLogos.map((partner, i) => (
+                <div
+                  key={`first-${i}`}
+                  className="glass-card px-6 py-3 rounded-lg hover:shadow-glass-lg transition-all duration-300 group cursor-default flex-shrink-0 mx-2"
+                >
+                  <div className="flex items-center gap-2">
+                    <span className="font-mono text-xs text-primary/60 group-hover:text-primary transition-colors">
+                      {partner.abbr}
+                    </span>
+                    <span className="text-sm text-muted-foreground group-hover:text-foreground transition-colors whitespace-nowrap">
+                      {partner.name}
+                    </span>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+              {/* Duplicate set for seamless loop */}
+              {partnerLogos.map((partner, i) => (
+                <div
+                  key={`second-${i}`}
+                  className="glass-card px-6 py-3 rounded-lg hover:shadow-glass-lg transition-all duration-300 group cursor-default flex-shrink-0 mx-2"
+                >
+                  <div className="flex items-center gap-2">
+                    <span className="font-mono text-xs text-primary/60 group-hover:text-primary transition-colors">
+                      {partner.abbr}
+                    </span>
+                    <span className="text-sm text-muted-foreground group-hover:text-foreground transition-colors whitespace-nowrap">
+                      {partner.name}
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
