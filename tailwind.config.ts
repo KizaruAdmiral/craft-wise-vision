@@ -13,6 +13,11 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        serif: ["Playfair Display", "Noto Serif SC", "serif"],
+        "serif-body": ["Source Serif Pro", "Noto Serif SC", "serif"],
+        mono: ["JetBrains Mono", "monospace"],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -57,33 +62,81 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        // 伯乐品牌色
+        bole: {
+          blue: "hsl(209 70% 33%)",
+          "blue-light": "hsl(209 70% 45%)",
+          orange: "hsl(18 50% 54%)",
+          "orange-light": "hsl(18 60% 60%)",
+          cream: "hsl(40 33% 97%)",
+          charcoal: "hsl(220 20% 15%)",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+        xl: "calc(var(--radius) + 4px)",
+        "2xl": "calc(var(--radius) + 8px)",
+      },
+      boxShadow: {
+        glass: "0 8px 32px rgba(26, 84, 144, 0.1)",
+        "glass-lg": "0 16px 48px rgba(26, 84, 144, 0.15)",
+        "glass-xl": "0 24px 64px rgba(26, 84, 144, 0.2)",
+        glow: "0 0 20px hsl(209 70% 33% / 0.3)",
+        "glow-lg": "0 0 40px hsl(209 70% 33% / 0.4)",
+        "accent-glow": "0 0 20px hsl(18 50% 54% / 0.3)",
       },
       keyframes: {
         "accordion-down": {
-          from: {
-            height: "0",
-          },
-          to: {
-            height: "var(--radix-accordion-content-height)",
-          },
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
-          from: {
-            height: "var(--radix-accordion-content-height)",
-          },
-          to: {
-            height: "0",
-          },
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
+        },
+        "fade-in-up": {
+          from: { opacity: "0", transform: "translateY(30px)" },
+          to: { opacity: "1", transform: "translateY(0)" },
+        },
+        "fade-in": {
+          from: { opacity: "0" },
+          to: { opacity: "1" },
+        },
+        "scale-in": {
+          from: { opacity: "0", transform: "scale(0.95)" },
+          to: { opacity: "1", transform: "scale(1)" },
+        },
+        float: {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-10px)" },
+        },
+        "pulse-glow": {
+          "0%, 100%": { boxShadow: "0 0 20px hsl(209 70% 33% / 0.3)" },
+          "50%": { boxShadow: "0 0 40px hsl(209 70% 33% / 0.5)" },
+        },
+        shimmer: {
+          "0%": { backgroundPosition: "-200% 0" },
+          "100%": { backgroundPosition: "200% 0" },
+        },
+        "count-up": {
+          from: { opacity: "0" },
+          to: { opacity: "1" },
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "fade-in-up": "fade-in-up 0.8s ease-out forwards",
+        "fade-in": "fade-in 0.6s ease-out forwards",
+        "scale-in": "scale-in 0.3s ease-out forwards",
+        float: "float 4s ease-in-out infinite",
+        "pulse-glow": "pulse-glow 2s ease-in-out infinite",
+        shimmer: "shimmer 2s linear infinite",
+      },
+      backdropBlur: {
+        xs: "2px",
       },
     },
   },

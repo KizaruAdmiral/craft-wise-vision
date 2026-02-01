@@ -1,0 +1,176 @@
+import { useEffect, useState } from 'react';
+import { Button } from '@/components/ui/button';
+import { useMagneticButton } from '@/hooks/useMagneticButton';
+import { RadarChart } from './RadarChart';
+import boleLogo from '@/assets/bole-logo.png';
+
+const partnerLogos = [
+  { name: '大型制造集团', abbr: 'MFG' },
+  { name: '国际物流企业', abbr: 'LOG' },
+  { name: '建筑工程公司', abbr: 'CON' },
+  { name: '零售连锁品牌', abbr: 'RET' },
+  { name: '能源科技集团', abbr: 'ENR' },
+];
+
+export function HeroSection() {
+  const [isLoaded, setIsLoaded] = useState(false);
+  const magneticBtn = useMagneticButton<HTMLButtonElement>(0.2);
+  const secondaryBtn = useMagneticButton<HTMLButtonElement>(0.15);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoaded(true), 100);
+    return () => clearTimeout(timer);
+  }, []);
+
+  const scrollToContact = () => {
+    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  return (
+    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden noise-bg">
+      {/* Background gradient orbs */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div 
+          className="absolute -top-1/4 -right-1/4 w-1/2 h-1/2 rounded-full opacity-30 animate-float"
+          style={{
+            background: 'radial-gradient(circle, hsl(209 70% 33% / 0.2) 0%, transparent 70%)',
+          }}
+        />
+        <div 
+          className="absolute -bottom-1/4 -left-1/4 w-1/2 h-1/2 rounded-full opacity-20"
+          style={{
+            background: 'radial-gradient(circle, hsl(18 50% 54% / 0.2) 0%, transparent 70%)',
+            animation: 'float 4s ease-in-out infinite',
+            animationDelay: '2s',
+          }}
+        />
+      </div>
+
+      <div className="container mx-auto px-4 py-20 lg:py-32 relative z-10">
+        {/* Logo */}
+        <div 
+          className={`flex justify-center mb-8 transition-all duration-700 ${
+            isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+          }`}
+        >
+          <img 
+            src={boleLogo} 
+            alt="伯乐 AI" 
+            className="h-16 md:h-20 object-contain"
+          />
+        </div>
+
+        {/* Main content grid */}
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          {/* Left: Text content */}
+          <div className="text-center lg:text-left">
+            <h1 
+              className={`text-display mb-6 transition-all duration-700 delay-100 ${
+                isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+              }`}
+            >
+              <span className="block text-foreground">让每一个流程</span>
+              <span className="block gradient-text">都成为增长引擎</span>
+            </h1>
+
+            <p 
+              className={`text-body-lg text-muted-foreground mb-4 transition-all duration-700 delay-200 ${
+                isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+              }`}
+            >
+              企业的人工智能技能升级伙伴，全方位协助您应用 AI
+            </p>
+
+            <p 
+              className={`font-mono text-sm text-muted-foreground/70 mb-8 tracking-wide transition-all duration-700 delay-300 ${
+                isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+              }`}
+            >
+              Powered by Industry-Native AI
+            </p>
+
+            {/* CTA Buttons */}
+            <div 
+              className={`flex flex-col sm:flex-row gap-4 justify-center lg:justify-start transition-all duration-700 delay-400 ${
+                isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+              }`}
+            >
+              <Button
+                ref={magneticBtn.ref}
+                onMouseMove={magneticBtn.onMouseMove}
+                onMouseLeave={magneticBtn.onMouseLeave}
+                onClick={scrollToContact}
+                size="lg"
+                className="magnetic-btn bg-accent hover:bg-accent/90 text-accent-foreground shadow-accent-glow hover:shadow-glow-lg transition-all duration-300 text-lg px-8 py-6 rounded-xl"
+              >
+                获取方案
+              </Button>
+              <Button
+                ref={secondaryBtn.ref}
+                onMouseMove={secondaryBtn.onMouseMove}
+                onMouseLeave={secondaryBtn.onMouseLeave}
+                variant="outline"
+                size="lg"
+                className="magnetic-btn glass-card border-primary/20 hover:border-primary/40 text-lg px-8 py-6 rounded-xl transition-all duration-300"
+              >
+                查看案例
+              </Button>
+            </div>
+          </div>
+
+          {/* Right: Interactive Radar Chart */}
+          <div 
+            className={`transition-all duration-700 delay-500 ${
+              isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+            }`}
+          >
+            <div className="glass-card rounded-2xl p-6 lg:p-8">
+              <div className="text-center mb-6">
+                <h3 className="text-lg font-semibold mb-2">AI 能力诊断预览</h3>
+                <p className="text-sm text-muted-foreground font-mono">
+                  Enterprise AI Capability Assessment
+                </p>
+              </div>
+              <RadarChart />
+            </div>
+          </div>
+        </div>
+
+        {/* Partner logos */}
+        <div 
+          className={`mt-20 transition-all duration-700 delay-600 ${
+            isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+          }`}
+        >
+          <p className="text-center text-sm text-muted-foreground mb-6">
+            已服务行业领先企业
+          </p>
+          <div className="flex flex-wrap justify-center gap-4">
+            {partnerLogos.map((partner, i) => (
+              <div
+                key={i}
+                className="glass-card px-6 py-3 rounded-lg hover:shadow-glass-lg transition-all duration-300 group cursor-default"
+              >
+                <div className="flex items-center gap-2">
+                  <span className="font-mono text-xs text-primary/60 group-hover:text-primary transition-colors">
+                    {partner.abbr}
+                  </span>
+                  <span className="text-sm text-muted-foreground group-hover:text-foreground transition-colors">
+                    {partner.name}
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Scroll indicator */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+        <div className="w-6 h-10 rounded-full border-2 border-primary/30 flex justify-center pt-2">
+          <div className="w-1 h-2 bg-primary/50 rounded-full" />
+        </div>
+      </div>
+    </section>
+  );
+}
