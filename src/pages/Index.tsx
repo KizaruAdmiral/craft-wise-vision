@@ -7,6 +7,7 @@ import { ContactSection } from '@/components/landing/ContactSection';
 import { Footer } from '@/components/landing/Footer';
 import { NavBar } from '@/components/NavBar';
 import { SectionIndicator } from '@/components/landing/SectionIndicator';
+import { AbstractBackground } from '@/components/landing/AbstractBackground';
 import { useFullPageScroll } from '@/hooks/useFullPageScroll';
 
 const SECTION_COUNT = 6;
@@ -21,6 +22,7 @@ const Index = () => {
       ref={containerRef}
       className="min-h-screen bg-background overflow-x-hidden overflow-y-auto snap-y snap-mandatory"
     >
+      <AbstractBackground />
       <NavBar />
       <SectionIndicator
         currentSection={currentSection}
