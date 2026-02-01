@@ -98,33 +98,33 @@ export function DifferentiatorSection() {
   const { ref: headerRef, isRevealed: headerRevealed } = useScrollReveal<HTMLDivElement>();
 
   return (
-    <section className="py-24 lg:py-32 relative">
+    <section className="py-12 lg:py-16 relative">
       <div className="container mx-auto px-4">
         {/* Section header */}
         <div 
           ref={headerRef}
-          className={`text-center mb-16 transition-all duration-700 ${
+          className={`text-center mb-8 lg:mb-12 transition-all duration-700 ${
             headerRevealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
           <span className="font-mono text-xs text-accent uppercase tracking-wider">
             Why Bole
           </span>
-          <h2 className="text-headline mt-2 mb-4">为什么选择伯乐</h2>
+          <h2 className="text-headline mt-2 mb-3">为什么选择伯乐</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             深耕行业 × 可衡量成效 × 持续陪伴
           </p>
         </div>
 
         {/* Metrics grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 mb-12">
           {metrics.map((metric, i) => (
             <MetricCard key={i} {...metric} delay={i * 100} />
           ))}
         </div>
 
         {/* Differentiators */}
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-6">
           {differentiators.map((diff, i) => {
             const { ref, isRevealed } = useScrollReveal<HTMLDivElement>({ threshold: 0.2 });
             return (
@@ -136,11 +136,11 @@ export function DifferentiatorSection() {
                 }`}
                 style={{ transitionDelay: `${i * 150}ms` }}
               >
-                <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto lg:mx-0 mb-4 text-primary">
+                <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto lg:mx-0 mb-3 text-primary">
                   {diff.icon}
                 </div>
-                <h3 className="text-xl font-semibold mb-2">{diff.title}</h3>
-                <p className="text-muted-foreground leading-relaxed">{diff.description}</p>
+                <h3 className="text-lg font-semibold mb-2">{diff.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{diff.description}</p>
               </div>
             );
           })}

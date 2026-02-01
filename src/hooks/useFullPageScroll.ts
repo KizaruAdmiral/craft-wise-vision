@@ -84,7 +84,7 @@ export function useFullPageScroll({ sectionCount, throttleMs = 800 }: UseFullPag
   // Keyboard navigation
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'ArrowDown' || e.key === 'PageDown') {
+      if (e.key === 'ArrowDown' || e.key === 'PageDown' || e.key === ' ') {
         e.preventDefault();
         scrollToSection(currentSection + 1);
       } else if (e.key === 'ArrowUp' || e.key === 'PageUp') {

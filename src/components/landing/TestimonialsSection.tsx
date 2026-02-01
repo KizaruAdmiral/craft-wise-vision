@@ -78,26 +78,26 @@ export function TestimonialsSection() {
   const { ref: achievementsRef, isRevealed: achievementsRevealed } = useScrollReveal<HTMLDivElement>();
 
   return (
-    <section className="py-24 lg:py-32 relative bg-muted/30">
+    <section className="py-12 lg:py-16 relative bg-muted/30">
       <div className="container mx-auto px-4">
         {/* Section header */}
         <div 
           ref={headerRef}
-          className={`text-center mb-16 transition-all duration-700 ${
+          className={`text-center mb-8 lg:mb-10 transition-all duration-700 ${
             headerRevealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
           <span className="font-mono text-xs text-accent uppercase tracking-wider">
             Testimonials
           </span>
-          <h2 className="text-headline mt-2 mb-4">客户的声音</h2>
+          <h2 className="text-headline mt-2 mb-3">客户的声音</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             来自不同行业的真实反馈
           </p>
         </div>
 
         {/* Testimonials grid */}
-        <div className="grid md:grid-cols-3 gap-6 mb-20">
+        <div className="grid md:grid-cols-3 gap-4 lg:gap-6 mb-10">
           {testimonials.map((testimonial, i) => (
             <TestimonialCard key={i} {...testimonial} delay={i * 100} />
           ))}
@@ -106,18 +106,18 @@ export function TestimonialsSection() {
         {/* Achievement stats */}
         <div
           ref={achievementsRef}
-          className={`glass-card rounded-2xl p-8 lg:p-12 transition-all duration-700 ${
+          className={`glass-card rounded-2xl p-6 lg:p-8 transition-all duration-700 ${
             achievementsRevealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
             {achievements.map((achievement, i) => (
               <div 
                 key={i} 
                 className="text-center"
                 style={{ transitionDelay: `${i * 100}ms` }}
               >
-                <div className="text-3xl lg:text-4xl font-bold font-mono text-primary mb-2">
+                <div className="text-2xl lg:text-3xl font-bold font-mono text-primary mb-1">
                   {achievement.value}
                 </div>
                 <div className="text-sm text-muted-foreground">{achievement.label}</div>
@@ -127,13 +127,13 @@ export function TestimonialsSection() {
         </div>
 
         {/* Client logos */}
-        <div className="mt-16 text-center">
-          <p className="text-sm text-muted-foreground mb-8">已服务的行业领先企业</p>
-          <div className="flex flex-wrap justify-center gap-4 lg:gap-8">
+        <div className="mt-10 text-center">
+          <p className="text-sm text-muted-foreground mb-6">已服务的行业领先企业</p>
+          <div className="flex flex-wrap justify-center gap-3 lg:gap-6">
             {['制造业龙头', '国际物流', '建筑集团', '零售连锁', '能源科技', '汽车配件'].map((name, i) => (
               <div
                 key={i}
-                className="px-6 py-3 rounded-lg border border-border/50 text-muted-foreground hover:text-foreground hover:border-primary/30 transition-all duration-300 cursor-default"
+                className="px-4 py-2 rounded-lg border border-border/50 text-sm text-muted-foreground hover:text-foreground hover:border-primary/30 transition-all duration-300 cursor-default"
               >
                 {name}
               </div>

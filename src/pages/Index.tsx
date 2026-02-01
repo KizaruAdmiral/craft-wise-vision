@@ -31,16 +31,16 @@ const Index = () => {
       <div data-section className="min-h-screen snap-start">
         <HeroSection />
       </div>
-      <div data-section className="min-h-screen snap-start flex items-center">
+      <div data-section className="min-h-screen snap-start flex items-center py-8">
         <StorySection />
       </div>
-      <div data-section className="min-h-screen snap-start flex items-center">
+      <div data-section className="min-h-screen snap-start flex items-center py-8">
         <CapabilitiesSection />
       </div>
-      <div data-section className="min-h-screen snap-start flex items-center">
+      <div data-section className="min-h-screen snap-start flex items-center py-8">
         <DifferentiatorSection />
       </div>
-      <div data-section className="min-h-screen snap-start flex items-center">
+      <div data-section className="min-h-screen snap-start flex items-center py-8">
         <TestimonialsSection />
       </div>
       <div data-section className="min-h-screen snap-start">
