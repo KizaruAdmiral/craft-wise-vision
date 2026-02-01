@@ -5,6 +5,7 @@ import { Label } from '@/components/ui/label';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import { useMagneticButton } from '@/hooks/useMagneticButton';
 import { toast } from 'sonner';
+import { ArrowRight } from 'lucide-react';
 
 export function ContactSection() {
   const { ref, isRevealed } = useScrollReveal<HTMLDivElement>({ threshold: 0.1 });
@@ -123,9 +124,10 @@ export function ContactSection() {
                   onMouseLeave={magneticBtn.onMouseLeave}
                   type="submit"
                   disabled={isSubmitting}
-                  className="flex-1 magnetic-btn bg-accent hover:bg-accent/90 text-accent-foreground shadow-accent-glow transition-all duration-300 py-6 text-lg"
+                  className="flex-1 magnetic-btn group bg-foreground text-background hover:bg-foreground/90 transition-all duration-300 py-6 text-lg"
                 >
                   {isSubmitting ? '提交中...' : '获取方案'}
+                  {!isSubmitting && <ArrowRight className="w-5 h-5 ml-1 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />}
                 </Button>
                 <Button
                   type="button"
