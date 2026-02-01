@@ -139,18 +139,18 @@ const cards: FlipCardData[] = [
 
 export function StorySection() {
   return (
-    <section className="py-24 lg:py-32 relative w-full" data-section>
+    <section className="py-12 lg:py-16 relative w-full" data-section>
       <div className="container mx-auto px-4 flex flex-col items-center justify-center">
         {/* Section header */}
-        <div className="text-center mb-16">
-          <h2 className="text-headline mb-4">为什么传统行业需要不一样的 AI 伙伴？</h2>
+        <div className="text-center mb-8 lg:mb-12">
+          <h2 className="text-headline mb-3">为什么传统行业需要不一样的 AI 伙伴？</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             从困境到突破，我们理解您的挑战
           </p>
         </div>
 
         {/* Flip cards - flexible layout */}
-        <div className="flex flex-wrap justify-center gap-6 lg:gap-8 w-full max-w-6xl">
+        <div className="flex flex-wrap justify-center gap-4 lg:gap-6 w-full max-w-5xl">
           {cards.map((card, index) => (
             <FlipCard key={card.title} data={card} delay={index * 150} />
           ))}

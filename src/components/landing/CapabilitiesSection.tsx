@@ -127,26 +127,26 @@ export function CapabilitiesSection() {
   const { ref: headerRef, isRevealed: headerRevealed } = useScrollReveal<HTMLDivElement>();
 
   return (
-    <section className="py-24 lg:py-32 relative bg-muted/30">
+    <section className="py-12 lg:py-16 relative bg-muted/30">
       <div className="container mx-auto px-4">
         {/* Section header */}
         <div 
           ref={headerRef}
-          className={`text-center mb-16 transition-all duration-700 ${
+          className={`text-center mb-8 lg:mb-12 transition-all duration-700 ${
             headerRevealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
           <span className="font-mono text-xs text-accent uppercase tracking-wider">
             Our Capabilities
           </span>
-          <h2 className="text-headline mt-2 mb-4">四大核心能力</h2>
+          <h2 className="text-headline mt-2 mb-3">四大核心能力</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             覆盖企业 AI 转型的全链路场景
           </p>
         </div>
 
         {/* Capability cards grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
           {capabilities.map((cap, i) => (
             <CapabilityCard key={i} {...cap} delay={i * 100} />
           ))}
