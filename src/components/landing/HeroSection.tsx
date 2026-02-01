@@ -73,13 +73,11 @@ export function HeroSection() {
               企业的人工智能技能升级伙伴，全方位协助您应用 AI
             </p>
 
-            <p 
-              className={`font-mono text-sm text-muted-foreground/70 mb-8 tracking-wide transition-all duration-700 delay-300 ${
+            <div 
+              className={`mb-8 transition-all duration-700 delay-300 ${
                 isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
               }`}
-            >
-              Powered by Industry-Native AI
-            </p>
+            />
 
             {/* CTA Buttons */}
             <div 
@@ -173,12 +171,6 @@ export function HeroSection() {
         </div>
       </div>
 
-      {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 rounded-full border-2 border-primary/30 flex justify-center pt-2">
-          <div className="w-1 h-2 bg-primary/50 rounded-full" />
-        </div>
-      </div>
     </section>
   );
 }
