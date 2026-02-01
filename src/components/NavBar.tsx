@@ -41,7 +41,7 @@ export function NavBar() {
               <img
                 src={boleLogo}
                 alt="伯乐 AI"
-                className="h-[110%] w-[110%] object-cover object-center"
+                className="h-[120%] w-[120%] object-cover object-center"
               />
             </div>
           </Link>

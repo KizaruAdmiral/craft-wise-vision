@@ -21,7 +21,7 @@ export function Footer() {
         <div className="flex flex-col items-center text-center max-w-xl mx-auto">
           {/* Brand */}
           <div className="h-12 w-12 overflow-hidden flex items-center justify-center mb-4">
-            <img src={boleLogo} alt="伯乐 AI" className="h-[110%] w-[110%] object-cover object-center" />
+            <img src={boleLogo} alt="伯乐 AI" className="h-[120%] w-[120%] object-cover object-center" />
           </div>
           <p className="text-muted-foreground mb-6">
             企业的人工智能技能升级伙伴，全方位协助企业应用人工智能——从升级销售与营销流程，到管理端到端的供应链。
