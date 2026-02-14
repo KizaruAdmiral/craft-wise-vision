@@ -50,9 +50,8 @@ function FlipCard({ data, delay }: { data: FlipCardData; delay: number }) {
       <div className={`flip-card-inner ${isFlipped ? 'flipped' : ''}`}>
         {/* Front */}
         <div className="flip-card-front glass-card rounded-2xl p-6 flex flex-col items-center justify-center text-center">
-          <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider mb-3">
-            {data.subtitle}
-          </span>
+
+
           <div className="text-4xl mb-4">{data.icon}</div>
           <h3 className="text-xl font-semibold mb-3">{data.title}</h3>
           <div className="mt-auto">
@@ -69,9 +68,8 @@ function FlipCard({ data, delay }: { data: FlipCardData; delay: number }) {
 
         {/* Back */}
         <div className="flip-card-back glass-card rounded-2xl p-6 flex flex-col justify-center">
-          <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider mb-2">
-            {data.subtitle}
-          </span>
+
+
           <h3 className="text-lg font-semibold mb-3">{data.title}</h3>
           <p className="text-sm text-muted-foreground leading-relaxed mb-4">{data.description}</p>
           <div className="mt-auto pt-3 border-t border-border/50">

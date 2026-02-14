@@ -44,9 +44,8 @@ export function ContactSection() {
         >
           {/* Header */}
           <div className="text-center mb-12">
-            <span className="font-mono text-xs text-accent uppercase tracking-wider">
-              Get Started
-            </span>
+
+
             <h2 className="text-headline mt-2 mb-4">获取您的专属方案</h2>
             <p className="text-muted-foreground">
               留下您的信息，我们的行业专家将在24小时内与您联系
