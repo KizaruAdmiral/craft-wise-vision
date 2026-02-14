@@ -2,14 +2,13 @@ import { useScrollReveal } from '@/hooks/useScrollReveal';
 
 interface CapabilityCardProps {
   title: string;
-  titleEn: string;
   description: string;
   features: string[];
   icon: React.ReactNode;
   delay: number;
 }
 
-function CapabilityCard({ title, titleEn, description, features, icon, delay }: CapabilityCardProps) {
+function CapabilityCard({ title, description, features, icon, delay }: CapabilityCardProps) {
   const { ref, isRevealed } = useScrollReveal<HTMLDivElement>({ threshold: 0.1 });
 
   return (
@@ -30,9 +29,8 @@ function CapabilityCard({ title, titleEn, description, features, icon, delay }: 
 
         {/* Title */}
         <h3 className="text-xl font-semibold mb-1">{title}</h3>
-        <span className="text-xs font-mono text-muted-foreground/60 uppercase tracking-wider">
-          {titleEn}
-        </span>
+
+
 
         {/* Description */}
         <p className="text-muted-foreground mt-4 mb-6 text-sm leading-relaxed">
@@ -71,7 +69,7 @@ function CapabilityCard({ title, titleEn, description, features, icon, delay }: 
 const capabilities = [
   {
     title: '销售智能',
-    titleEn: 'Sales Intelligence',
+    
     description: 'AI 赋能销售团队，从线索评分到成交预测，全面提升销售效能。',
     features: ['智能线索评分', '销售预测分析', '客户画像洞察', '话术智能推荐'],
     icon: (
@@ -82,7 +80,7 @@ const capabilities = [
   },
   {
     title: '营销自动化',
-    titleEn: 'Marketing Automation',
+    
     description: '精准触达目标客户，AI 驱动的内容生成与投放优化。',
     features: ['智能内容生成', '多渠道自动化', 'A/B测试优化', 'ROI 实时追踪'],
     icon: (
@@ -94,7 +92,7 @@ const capabilities = [
   },
   {
     title: '供应链优化',
-    titleEn: 'Supply Chain AI',
+    
     description: '从需求预测到库存优化，让供应链成为竞争优势。',
     features: ['需求智能预测', '库存动态优化', '供应商评估', '物流路径规划'],
     icon: (
@@ -105,7 +103,7 @@ const capabilities = [
   },
   {
     title: '全链路咨询',
-    titleEn: 'AI Strategy',
+    
     description: 'AI 转型战略规划，从评估到落地的全程陪伴。',
     features: ['AI成熟度评估', '转型路线图', '组织能力建设', '持续迭代优化'],
     icon: (
