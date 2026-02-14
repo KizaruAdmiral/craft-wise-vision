@@ -134,9 +134,8 @@ export function DifferentiatorSection() {
             headerRevealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
-          <span className="font-mono text-xs text-accent uppercase tracking-wider">
-            Why Bole
-          </span>
+
+
           <h2 className="text-headline mt-2 mb-3">为什么选择伯乐</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             深耕行业 × 可衡量成效 × 持续陪伴

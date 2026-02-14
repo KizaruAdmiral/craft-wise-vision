@@ -129,9 +129,8 @@ export function CapabilitiesSection() {
             headerRevealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
-          <span className="font-mono text-xs text-accent uppercase tracking-wider">
-            Our Capabilities
-          </span>
+
+
           <h2 className="text-headline mt-2 mb-3">四大核心能力</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             覆盖企业 AI 转型的全链路场景
