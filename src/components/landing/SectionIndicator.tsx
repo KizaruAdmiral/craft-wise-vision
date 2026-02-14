@@ -4,7 +4,7 @@ interface SectionIndicatorProps {
   onNavigate: (index: number) => void;
 }
 
-const sectionLabels = ['首页', '故事', '能力', '差异化', '评价', '联络'];
+const sectionLabels = ['首页', '故事', '能力', '差异化', '联络'];
 
 export function SectionIndicator({ currentSection, totalSections, onNavigate }: SectionIndicatorProps) {
   return (
