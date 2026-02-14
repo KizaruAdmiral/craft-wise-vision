@@ -42,7 +42,7 @@ function useRollingText() {
 function RollingWord() {
   const word = useRollingText();
   return (
-    <span className="inline-block relative overflow-hidden align-bottom" style={{ width: '2.5em', height: '1.15em' }}>
+    <span className="inline-block relative overflow-hidden align-bottom" style={{ width: '2.1em', height: '1.15em' }}>
       <span
         key={word}
         className="absolute inset-0 flex items-center justify-center gradient-text animate-roll-in whitespace-nowrap"
