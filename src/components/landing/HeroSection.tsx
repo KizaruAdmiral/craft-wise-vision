@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { Scene3D } from './Scene3D';
+
 import { ArrowRight } from 'lucide-react';
 
 const partnerLogos = [
@@ -108,7 +108,9 @@ export function HeroSection() {
               isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
             }`}
           >
-            <Scene3D />
+            <div className="w-full h-[400px] lg:h-[500px] rounded-2xl bg-muted/30 border border-border/20 flex items-center justify-center">
+              <span className="text-muted-foreground text-sm">Placeholder</span>
+            </div>
           </div>
         </div>
 
