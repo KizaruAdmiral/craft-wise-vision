@@ -1,7 +1,57 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef, useCallback } from 'react';
 import { Button } from '@/components/ui/button';
 
 import { ArrowRight } from 'lucide-react';
+
+const rollingWords = ['采购', '内勤', '会计', '跟单', '统计', '售后', '代理'];
+const PAUSE_WORD = '代理';
+const NORMAL_INTERVAL = 1000;
+const PAUSE_DURATION = 10000;
+
+function useRollingText() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout>>();
+
+  const scheduleNext = useCallback((idx: number) => {
+    const nextIdx = (idx + 1) % rollingWords.length;
+    const isPause = rollingWords[idx] === PAUSE_WORD;
+    const delay = isPause ? PAUSE_DURATION : NORMAL_INTERVAL;
+    timeoutRef.current = setTimeout(() => {
+      setCurrentIndex(nextIdx);
+      scheduleNext(nextIdx);
+    }, delay);
+  }, []);
+
+  useEffect(() => {
+    // Start after 5 seconds, then begin rolling
+    const initial = setTimeout(() => {
+      const next = 1;
+      setCurrentIndex(next);
+      scheduleNext(next);
+    }, NORMAL_INTERVAL);
+
+    return () => {
+      clearTimeout(initial);
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    };
+  }, [scheduleNext]);
+
+  return rollingWords[currentIndex];
+}
+
+function RollingWord() {
+  const word = useRollingText();
+  return (
+    <span className="inline-block relative overflow-hidden align-bottom" style={{ width: '2.2ch', height: '1.15em' }}>
+      <span
+        key={word}
+        className="absolute inset-0 flex items-center justify-center gradient-text animate-roll-in"
+      >
+        {word}
+      </span>
+    </span>
+  );
+}
 
 const partnerLogos = [
   { name: '大型制造集团', abbr: 'MFG' },
@@ -58,8 +108,12 @@ export function HeroSection() {
                 isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
               }`}
             >
-              <span className="block text-foreground">让每一个流程</span>
-              <span className="block gradient-text">都成为增长引擎</span>
+              <span className="block text-foreground">您还未拥有自己的</span>
+              <span className="block text-foreground">
+                AI{' '}
+                <RollingWord />
+                {' '}吗？
+              </span>
             </h1>
 
             <p 

@@ -321,6 +321,25 @@
     animation: float 4s ease-in-out infinite;
   }
 
+  /* 滚动文字动画 */
+  @keyframes roll-in {
+    0% {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+    20% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  .animate-roll-in {
+    animation: roll-in 0.4s ease-out forwards;
+  }
+
   /* 脉冲光效 */
   @keyframes pulse-glow {
     0%, 100% { box-shadow: 0 0 20px hsl(209 70% 33% / 0.3); }
